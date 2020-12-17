@@ -1,0 +1,23 @@
+.cover-thumbnail{
+    overflow:hidden;
+    position:relative;
+    @include size(calc((100vw / 1.618 + 30px)), 100vw);
+    img{
+        object-fit: cover;
+        position:absolute;
+        z-index:0;
+        @include size(100%, 100%);
+    }
+    button.play{
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: none;
+        border: none;
+    }
+    @media screen and (min-width: 768px){
+        @include size(50vh, 100vw);
+    }
+}

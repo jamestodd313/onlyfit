@@ -1,0 +1,49 @@
+nav{
+    position:fixed;
+    z-index: 10;
+    @include size(76px, 100vw);
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    @include padding();
+    padding-bottom: 40px;
+    background: $black;
+    .nav-link{
+        svg{
+            stroke: white;
+            fill: white;
+            transition: 0.2s;
+            &:hover{
+                fill: $grey;
+                stroke: $grey;
+            }
+        }
+        .user-img{
+            display: inline-block;
+            @include size(32px, 32px);
+            border-radius: 50%;
+            background: $grey;
+            border: 3px solid white;
+        }
+        &.active{
+            svg{
+                stroke: $green;
+                fill: $green;
+            }
+            .user-img{
+                border: 3px solid $green;
+            }
+        }
+    }
+    @media screen and (min-width: 992px){
+        background: none;
+        padding:0;
+        display: block;
+        width: auto;
+        top: 25px;
+        right: 32px;
+        .nav-link{
+            margin-left: 56px;
+        }
+    }
+}

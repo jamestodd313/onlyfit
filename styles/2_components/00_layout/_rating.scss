@@ -1,0 +1,6 @@
+.rating{
+    .star{
+        margin: 8px 4px;
+        @include size(13px, 13px);
+    }
+}

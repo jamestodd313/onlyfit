@@ -1,0 +1,120 @@
+.view-controls{
+    *{
+        cursor: pointer;
+    }
+    margin: 0px 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -30px;
+    @media screen and (min-width: 992px){
+        margin-left: 32px;
+        justify-content: flex-start;
+    }
+}
+.icon{
+    pointer-events: none;
+}
+.dropdown-container, .nested-menu-container{
+    width: calc(50vw - 16px - 8px);
+    position:relative;
+    .dropdown-select, .nested-menu-toggle{
+        position:relative;
+        z-index: 3;
+        background: rgb(60, 60, 60);
+        padding: 12px;
+        color: $off-white;
+        border-radius: 2px;
+        .arrow{
+            min-height:0em;
+            min-width:0em;
+            position:absolute;
+            top: 50%;
+            right: 8px;
+            transform: translateY(-25%);
+            $brdr: 8px solid;
+            border-top: $brdr $green;
+            border-left: $brdr transparent;
+            border-right: $brdr transparent;
+            border-bottom: $brdr transparent;
+        }
+    }
+    .dropdown-list, .top-level-menu{
+        position: absolute;
+        z-index:2;
+        top: calc(100% - 8px);
+        margin:0;
+        padding:0;
+        background: $light-black;
+        padding: 16px 8px 0px 8px;
+        width: calc(50vw - 16px - 8px);
+        transition: 0.3s;
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+        li{
+            margin-bottom: 8px;
+            padding: 8px;
+            border-radius: 2px;
+            text-transform: capitalize;
+            &:hover{
+                background: $grey;
+            }
+        }
+        &.hidden{
+            height:0px;
+            opacity:0;
+            pointer-events: none;
+        }
+    }
+    @media screen and (min-width: 992px){
+        width: 20vw;
+        .dropdown-select, .dropdown-list{
+            width: 20vw;
+        }
+    }
+}
+.nested-menu-container{
+    @media screen and (min-width: 992px){
+        margin-left: 16px;
+    }
+    .nested-menu-toggle{
+        .icon{
+            position:absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 16px;
+            pointer-events: none;
+        }
+    }
+    .top-level-menu{
+        @media screen and (min-width: 992px){
+            width:20vw;
+        }
+        .top-level-menu-toggle{
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            margin-bottom: 8px;
+            border-radius: 2px;
+            &:hover{
+                background: $grey;
+            }
+        }
+        .nested-menu{
+            .dropdown-option{
+                padding: 8px 16px;
+                color: $grey;
+                &:hover{
+                    background: $black;
+                    color: white;
+                }
+                &.selected{
+                    color: $green;
+                    &:hover{
+                        color: $red;
+                    }
+                }
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,32 @@
+.category-header{
+    width: 100vw;
+    margin-top: 60px;
+    height: 232px;
+    overflow: hidden;
+    margin-bottom: 32px;
+    .header-inner{
+        height: 100%;
+        position:relative;
+        img{
+            position:absolute;
+            top: -50%;
+            left:0;
+            width: 100%;
+        }
+        .txt{
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            h1{
+                text-transform: uppercase;
+                margin-bottom: 8px;
+            }
+            span{
+                text-transform: capitalize;
+            }
+        }
+    }
+}

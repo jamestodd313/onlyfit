@@ -1,0 +1,84 @@
+body{
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    color: $off-white;
+}
+p{
+    line-height: 19.42px;
+    @media screen and (min-width: 992px){
+        font-size: 16px;
+        line-height: calc(16px * 1.618);
+    }
+}
+h1, h2, h3, .title{
+    font-family: Oswald, impact, sans-serif;
+}
+h1, .title{
+    font-weight: 600;
+    color: $white;
+}
+h1.title{
+    text-transform: capitalize;
+}
+h2, h3{
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+h1{
+    font-size: 48px;
+}
+h2{
+    color: $light-grey;
+    margin-bottom: 8px;
+    margin-top: 64px;
+}
+h3{
+    color: $grey;
+    margin-top: 32px;
+}
+a.accent-txt:hover{
+    text-decoration: underline;
+}
+.title{
+    font-size: 24px;
+}
+h1.title{
+    @media screen and (min-width: 992px){
+        font-size: 49px;
+        margin-bottom: 12px;
+    }
+}
+.subhead{
+    font-size: 18px;
+    font-weight: 500;
+}
+.accent-txt, .secondary-accent-txt{
+    font-size: 12px;
+    margin-top: 8px;
+    text-transform: capitalize;
+    @media screen and (min-width: 992px){
+        font-size: 16px;
+    }
+}
+.accent-txt{
+    color: $green;
+}
+.secondary-accent-txt{
+    color: $white;
+}
+.cover-card{
+    .details{
+        h3.title{
+            @media screen and (min-width: 768px){
+                font-size: 48px;
+            }
+        }
+    }
+}
+button{
+    font-family: Roboto;
+    font-size: 16px;
+    text-transform: uppercase;
+}

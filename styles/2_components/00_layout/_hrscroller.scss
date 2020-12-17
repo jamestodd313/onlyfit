@@ -1,0 +1,12 @@
+.hr-scroll-wrap{
+    h2{
+        margin-left: 16px;
+        @media screen and (min-width: 992px){
+            margin-left: 32px;
+        }
+    }
+    .hr-scroller{
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+}

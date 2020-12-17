@@ -1,0 +1,8 @@
+.settings-menu{
+    @media screen and (min-width: 992px){
+        max-width: 900px;
+        overflow: hidden;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+}

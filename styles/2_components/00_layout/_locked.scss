@@ -1,0 +1,38 @@
+.locked-container{
+    background: $light-black;
+    width: 100vw;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    text-align: center;
+    margin: 0px auto;
+    svg{
+        margin: 0px 0px 32px 0px;
+    }
+    .lock-txt{
+        margin-bottom: 24px;
+        line-height: calc(1em * 1.618);
+        color: #B1B1B1;
+    }
+    .btns{
+        button{
+            display: block;
+            width: calc(100vw - 32px);
+            max-width: calc(500px - 32px);
+            margin: 12px 0px;
+            padding: 12px;
+            background: $off-white;
+            border: none;
+            border-radius: 2px;
+            @media screen and (min-width: 992px){
+                max-width: calc(500px - 64px);
+            }
+        }
+    }
+    @media screen and (min-width: 768px){
+        border-radius: 2px;
+    }
+}

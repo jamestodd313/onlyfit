@@ -1,0 +1,95 @@
+.mini-card{
+    display: inline-block;
+    white-space: nowrap;
+    position: relative;
+    margin-right: 8px;
+    @include size(calc(75vw / 1.618), 75vw);
+    overflow: hidden;
+    padding: 16px;
+    cursor: pointer;
+    &:first-of-type{
+        margin-left: 16px;
+        @media screen and (min-width: 992px){
+            margin-left: 32px;
+        }
+    }
+    img{
+        position: absolute;
+        z-index: 1;
+        top:0;
+        left:0;
+        @include size(calc(75vw / 1.618), 75vw);
+        object-fit: cover;
+        opacity: 0.95;
+        transition: 0.2s;
+        @media screen and (min-width: 768px){
+            @include size(calc(25vw / 1.618), 25vw);
+        }
+    }
+    .filter{
+        position:absolute;
+        top:0;
+        left:0;
+        z-index: 2;
+        @include size(calc(75vw / 1.618), 75vw);
+        opacity: 0.65;
+    }
+    .filter{
+        background: $black;
+    }
+    span.title{
+        z-index:3;
+        @include size(100%, 100%);
+        position: absolute;
+        top:0;
+        left:0;
+        display: grid;
+        place-content: center;
+    }
+    &:last-of-type{
+        margin-right: 16px;
+        @media screen and (min-width: 992px){
+            margin-right: 32px;
+        }
+    }
+    &:hover{
+        img{
+            opacity:1;
+            animation: hueRotate 7s infinite linear;
+            @keyframes hueRotate{
+                0%{
+                    filter: hue-rotate(0deg)
+                }
+                5%{
+                    filter: hue-rotate(0deg)
+                }
+                100%{
+                    filter: hue-rotate(359deg)
+                }
+            }
+        }
+    }
+    @media screen and (min-width: 768px){
+        @include size(calc(25vw / 1.618), 25vw);
+    }
+}
+
+.cat-card{
+    border-radius: 2px;
+    &:hover{
+        img{
+            opacity: 0.75;
+        }
+    }
+    &:first-of-type{
+        margin-left: 16px;
+        @media screen and (min-width: 992px){
+            margin-left: 32px;
+        }
+    }
+    span.title{
+        text-transform: uppercase;
+        font-size: 24px;
+        font-weight: 600;
+    }
+}

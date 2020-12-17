@@ -1,0 +1,38 @@
+.spacer{
+    height: 100px;
+    @media screen and (min-width: 992px){
+        max-height: 10px;
+    }
+}
+.info-wrap{
+    margin-top: 150px;
+}
+@mixin size($h, $w){
+    height: $h;
+    width: $w;
+}
+@mixin margin(){
+    margin: 24px 16px;
+    @media screen and (min-width: 768px){
+        margin: 24px 24px;
+    }
+    @media screen and (min-width: 992px){
+        margin: 24px 32px;
+    }
+    @media screen and (min-width: 1281px){
+        margin: 24px 40px;
+    }
+}
+
+@mixin padding(){
+    padding: 24px 16px;
+    @media screen and (min-width: 768px){
+        padding: 24px 24px;
+    }
+    @media screen and (min-width: 992px){
+        padding: 24px 32px;
+    }
+    @media screen and (min-width: 1281px){
+        padding: 24px 40px;
+    } 
+}

@@ -1,0 +1,40 @@
+.settings-form{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    max-width: 500px;
+    label{
+        margin-left: 16px;
+        margin-bottom: 8px;
+        font-family: 'Oswald';
+        color: $grey;
+        font-size: 14px;
+        font-weight: 600;
+        max-width: 500px;
+    }
+    input{
+        margin-bottom: 32px;
+        height: 40px;
+        border-radius: 0px;
+        border: none;
+        padding: 0px 16px;
+        background: $light-black;
+        color: $off-white;
+        max-width: 500px;
+    }
+    button{
+        height: 48px;
+        border:none;
+        border-radius: 2px;
+        background: $off-white;
+        transition: 0.1s;
+        &:hover{
+            background: $green;
+        }
+    }
+    @media screen and (min-width: 992px){
+        label{
+            margin-left:0;
+        }
+    }
+}

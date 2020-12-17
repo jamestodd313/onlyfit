@@ -1,0 +1,164 @@
+.video-list{
+    &:last-of-type{
+        margin-bottom: 30px;
+    }
+    .no-res{
+        @include margin();
+        opacity: 0.5;        
+    }
+    h2{
+        margin-left: 16px;
+        @media screen and (min-width: 992px){
+            margin-left: 32px;
+        }
+    }
+    .list{
+        @media screen and (min-width: 768px){
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: auto;
+            column-gap: 4px;
+        }
+        @media screen and (min-width: 992px){
+            grid-template-columns: repeat(3, 1fr);
+            padding: 0px 32px;
+            gap: 0px 8px;
+        }
+    }
+    .loader{
+        text-align: center;
+        @include margin();
+        .end-txt, .animation{
+            display: none;
+        }
+        .animation{
+            max-height: 14px;
+            min-height: 14px;
+            .dot{
+                display: inline-block;
+                @include size(8px, 8px);
+                background: $grey;
+                margin: 0px 8px;
+                border-radius: 50%;
+                animation: load 0.75s ease-in-out infinite ;
+                &:nth-of-type(2){
+                    animation-delay: 0.25s;
+                }
+                &:nth-of-type(3){
+                    animation-delay: 0.5s;
+                }
+                @keyframes load {
+                    0%{
+                        opacity: 1;
+                    }
+                    25%{
+                        opacity: 0.5;
+                    }
+                    50%{
+                        opacity: 0.25;
+                    }
+                    75%{
+                        opacity: 0.5;
+                    }
+                    100%{
+                        opacity: 0.9
+                    }
+                }
+            }
+            @media screen and (min-width: 992px){
+                .dot{
+                    @include size(14px, 14px);
+                }
+            }
+        }
+        .end-txt{
+            opacity: 0.75;
+        }
+        &.loading{
+            .animation{
+                display: block;
+            }
+        }
+        &.no-more{
+            .end-txt{
+                display: block;
+            }
+        }
+    }
+    .mini-list{
+        position:relative;
+        .video-card{
+            // show 2 on mobile, 4 on tablet and 6 on desktop
+            &:nth-of-type(n + 3){
+                display: none;
+            }
+            @media screen and (min-width: 768px){
+                &:nth-of-type(-n + 4){
+                    display: unset;
+                }
+            }
+            @media screen and (min-width: 768px){
+                &:nth-of-type(-n + 6){
+                    display: unset;
+                }
+            }
+
+            // display:none;
+            // @media screen and (min-width: 768px){
+            //     &:nth-of-type(-n + 3){
+            //         display: unset;
+            //     }
+            // }
+            // @media screen and (min-width: 992px){
+            //     display: unset;
+            // }
+        }
+        .paywall{
+            position:absolute;
+            z-index:10;
+            top:0;
+            left:0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(4px);
+            @include size(100%, 100%);
+            @include padding();
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            .lock-icon{
+                margin-bottom: 24px;
+            }
+        }
+    }
+    button{
+        width: calc(100vw - (16px * 2));
+        display: block;
+        margin-left: 16px;
+        padding: 12px;
+        border:none;
+        border-radius: 2px;
+        &.dark{
+            background: $light-black;
+            color: $light-grey;
+            &:hover{
+                background: $grey;
+                color: $light-black;
+            }
+        }
+        &.light{
+            background: $off-white;
+            color: $light-black;
+            &:hover{
+                background: $white;
+                color: $light-black;
+            }
+        }
+        @media screen and (min-width: 992px){
+            width: calc(100vw - 64px);
+            margin-left: 32px;
+        }
+    }
+
+}

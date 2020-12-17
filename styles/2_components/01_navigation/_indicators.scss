@@ -1,0 +1,20 @@
+.indicators{
+    position:absolute;
+    background: none;
+    right: 32px;
+    top: 80%;
+    display:flex;
+    width: 8px;
+    padding: 0;
+    flex-direction: column;
+    button.indicator{
+        @include size(8px, 8px);
+        padding: 0;
+        border-radius: 0;
+        border: none;
+        opacity: 0.4;
+        &.active{
+            opacity: 1;
+        }
+    }
+}

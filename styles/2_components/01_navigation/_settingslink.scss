@@ -1,0 +1,40 @@
+.settings-link{
+    position:relative;
+    @include size(72px, 100vw);
+    overflow: hidden;
+    margin: 8px 0px;
+    padding: 16px;
+    @media screen and (min-width: 992px){
+        max-width: 900px;
+        img{
+            max-width: 900px;
+        }
+    }
+    cursor: pointer;
+    img{
+        @include size(72px, 100vw);
+        object-fit: cover;
+        position: absolute;
+        top:0;
+        left:0;
+        z-index:-1;
+        transition: 0.2s;
+    }
+    span{
+        display: block;
+    }
+    .title{
+        font-size: 18px;
+        font-weight: 400;
+        font-family: Oswald;
+    }
+    .subhead{
+        font-size: 12px;
+        margin-top: 8px;
+    }
+    &:hover{
+        img{
+            opacity: 0.65;
+        }
+    }
+}

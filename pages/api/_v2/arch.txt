@@ -1,0 +1,27 @@
+user routes
+✔️ GET /users/[id] - gets the users profile
+GET /users/[id]/settings - gets settings **PROTECTED ROUTE**
+
+
+content routes
+/content/[type] // gets all videos or programs
+/content/[type]
+    ?featured=[boolean] // gets featured content
+    ?user=[handle] // gets a users content
+    ?sort=[sortBy] // sorts results before sending to front end
+    ?category=[category] // filters by category
+    ?length={length} // filters by length
+    ?difficulty={difficulty} // filters by difficulty
+    ?rating={rating} // filters by avg rating
+    ?price={free | premium} // filters by price
+
+
+
+interface routes
+/interface/categories // gets all category docs
+/interface/categories/[category] // gets one doc
+
+
+
+
+

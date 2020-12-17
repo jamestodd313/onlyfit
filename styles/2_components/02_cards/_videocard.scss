@@ -1,0 +1,34 @@
+.video-card{
+    @include size(232px, 100vw);
+    position:relative;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover{
+        .thumbnail-img{
+            opacity:1;
+        }
+    }
+    .thumbnail-img{
+        @include size(232px, 100vw);
+        object-fit: cover;
+        opacity: 0.75;
+        transition: 0.2s;
+    }
+    @media screen and (min-width: 768px){
+        width: calc((100vw - 8px) / 2);
+        .thumbnail-img{
+            max-width: calc((100vw - 8px) / 2);
+        }
+    }
+    @media screen and (min-width: 992px){
+        @include size( calc(((100vw - 16px - 64px) / 3) / 1.618), calc(100vw - 16px - 64px) / 3);
+
+        width: calc((100vw - 16px - (64px)) / 3);
+        .thumbnail-img{
+            max-width: calc((100vw - (8 * 3)) / 4);
+            height: auto;
+        }
+    }
+}
