@@ -157,6 +157,10 @@ button {
   text-transform: uppercase;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 .spacer {
   height: 100px;
 }
@@ -512,7 +516,12 @@ button {
 
 .hr-scroll-wrap .hr-scroller {
   overflow-x: scroll;
+  overflow-y: hidden;
   white-space: nowrap;
+}
+
+.hr-scroll-wrap .hr-scroller::-webkit-scrollbar {
+  display: none;
 }
 
 .rating .star {
@@ -785,7 +794,7 @@ button {
 
 .category-header .header-inner img {
   position: absolute;
-  top: 0;
+  top: -50%;
   left: 0;
   width: 100%;
 }
