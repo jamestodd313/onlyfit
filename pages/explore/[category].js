@@ -56,8 +56,8 @@ export default function category({cat, vids}){
         setContent([])
         let str = getQueryString()
         let updateSortCall = ""
-        if(str.length > 0) updateSortCall = await fetch(`http://localhost:3000/api/_v2/content/videos?category=${router.query.category}${str}&sort=${sortBy.toLowerCase()}`)
-        else updateSortCall = await fetch(`http://localhost:3000/api/_v2/content/videos?category=${router.query.category}&sort=${sortBy.toLowerCase()}`)
+        if(str.length > 0) updateSortCall = await fetch(`/api/_v2/content/videos?category=${router.query.category}${str}&sort=${sortBy.toLowerCase()}`)
+        else updateSortCall = await fetch(`/api/_v2/content/videos?category=${router.query.category}&sort=${sortBy.toLowerCase()}`)
         const updatedSortData = await updateSortCall.json()
         const updatedSort = await updatedSortData.data
         setContent(updatedSort)
@@ -66,7 +66,7 @@ export default function category({cat, vids}){
         setContent([])
         let str = getQueryString()
         // make new API call with queryString and sort
-        const updateFiltersCall = await fetch(`http://localhost:3000/api/_v2/content/videos?category=${router.query.category}${str}&sort=${sortBy}`)
+        const updateFiltersCall = await fetch(`/api/_v2/content/videos?category=${router.query.category}${str}&sort=${sortBy}`)
         const updatedContentData = await updateFiltersCall.json()
         const updatedContent = await updatedContentData.data
         // update content state
@@ -89,11 +89,12 @@ export default function category({cat, vids}){
 }
 category.getInitialProps = async(ctx)=> {
     let cat = ctx.asPath.slice(9)
-    const vidsCall = await fetch(`http://localhost:3000/api/_v2/content/videos?category=${cat}`)
+
+    const vidsCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/videos?category=${cat}`, {mode: "cors"})
     const vidsData = await vidsCall.json()
     const vids = await vidsData.data
 
-    const catCall = await fetch(`http://localhost:3000/api/_v2/interface/categories?category=${cat}`)
+    const catCall = await fetch(`https://onlyfit.vercel.app/api/_v2/interface/categories?category=${cat}`, {mode: "cors"})
     const catData = await catCall.json()
     cat = catData.data[0]
     return {cat, vids}
