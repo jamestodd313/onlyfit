@@ -90,11 +90,11 @@ export default function category({cat, vids}){
 category.getInitialProps = async(ctx)=> {
     let cat = ctx.asPath.slice(9)
 
-    const vidsCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/videos?category=${cat}`, {mode: "cors"})
+    const vidsCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/videos?category=${cat}`)
     const vidsData = await vidsCall.json()
     const vids = await vidsData.data
 
-    const catCall = await fetch(`https://onlyfit.vercel.app/api/_v2/interface/categories?category=${cat}`, {mode: "cors"})
+    const catCall = await fetch(`https://onlyfit.vercel.app/api/_v2/interface/categories?category=${cat}`)
     const catData = await catCall.json()
     cat = catData.data[0]
     return {cat, vids}

@@ -34,11 +34,11 @@ export default function trainer({user, vids}){
 
 trainer.getInitialProps = async(ctx)=>{
     let handle = ctx.query.trainer
-    const userCall = await fetch(`http://localhost:3000/api/_v2/users/${handle}`)
+    const userCall = await fetch(`https://onlyfit.vercel.app/api/_v2/users/${handle}`)
     const userData = await userCall.json()
     const user = userData.data[0]
 //----------------//
-    const vidsCall = await fetch(`http://localhost:3000/api/_v2/content/videos?user=${handle}`)
+    const vidsCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/videos?user=${handle}`)
     const vidsData = await vidsCall.json()
     const videos = vidsData.data
     let vids = {
@@ -51,7 +51,7 @@ trainer.getInitialProps = async(ctx)=>{
         else vids.premiumVids.push(video)
     })
 //----------------//
-    const programsCall = await fetch(`http://localhost:3000/api/_v2/content/programs?user=${handle}`)
+    const programsCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/programs?user=${handle}`)
     const programsData = await programsCall.json()
     const progs = await programsData.data
     vids.programs = [...progs]

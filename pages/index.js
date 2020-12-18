@@ -24,11 +24,11 @@ export default function Home({newsFeed, featured}) {
 }
 
 Home.getInitialProps = async()=> {
-  const featCall = await fetch('http://localhost:3000/api/_v2/interface/featured')
+  const featCall = await fetch('https://onlyfit.vercel.app/api/_v2/interface/featured', {mode: "no-cors"})
   const featData = await featCall.json()
   const featured = await featData.data
 
-  const nfCall = await fetch('http://localhost:3000/api/_v2/content/videos')
+  const nfCall = await fetch('https://onlyfit.vercel.app/api/_v2/content/videos', {mode: "no-cors"})
   const nfData = await nfCall.json()
   const newsFeed = await nfData.data
 

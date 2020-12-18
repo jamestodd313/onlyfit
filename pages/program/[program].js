@@ -32,17 +32,17 @@ export default function program({prog, trainerProgs, similarProgs}){
 
 program.getInitialProps = async(ctx)=> {
     const docId = ctx.query.program
-    const progCall = await fetch(`http://localhost:3000/api/_v2/content/programs?vid=${docId}`)
+    const progCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/programs?vid=${docId}`)
     const progData = await progCall.json()
     const prog = await progData.data[0]
 
     let {uploadedBy, categories} = prog
 
-    const trainerCall = await fetch(`http://localhost:3000/api/_v2/content/programs?user=${uploadedBy.handle}`)
+    const trainerCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/programs?user=${uploadedBy.handle}`)
     const trainerData = await trainerCall.json()
     const trainerProgs = await trainerData.data
 
-    const similarCall = await fetch(`http://localhost:3000/api/_v2/content/programs?category=${categories.main}`)
+    const similarCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/programs?category=${categories.main}`)
     const similarData = await similarCall.json()
     const similarProgs = await similarData.data
     return {prog, trainerProgs, similarProgs}

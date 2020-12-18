@@ -90,7 +90,7 @@ export default function explore({featured, videos}){
 }
 explore.getInitialProps = async (ctx)=> {
     let featured = []
-    const vidCall = await fetch('http://localhost:3000/api/_v2/content/videos')
+    const vidCall = await fetch('https://onlyfit.vercel.app/api/_v2/content/videos')
     const vidData = await vidCall.json()
     const videos = vidData.data
     videos.forEach(vid=>{

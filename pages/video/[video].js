@@ -33,17 +33,17 @@ export default function video({vid, trainerVids, similarVids}){
 
 video.getInitialProps = async(ctx)=> {
     const vidId = ctx.query.video
-    const apiCall = await fetch(`http://localhost:3000/api/_v2/content/videos?vid=${vidId}`)
+    const apiCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/videos?vid=${vidId}`)
     const vidData = await apiCall.json()
     const vid = await vidData.data[0]
 
     let {uploadedBy, categories} = vid
 
-    const trainerCall = await fetch(`http://localhost:3000/api/_v2/content/videos?user=${uploadedBy.handle}`)
+    const trainerCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/videos?user=${uploadedBy.handle}`)
     const trainerData = await trainerCall.json()
     const trainerVids = await trainerData.data
 
-    const similarCall = await fetch(`http://localhost:3000/api/_v2/content/videos?category=${categories.main}`)
+    const similarCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/videos?category=${categories.main}`)
     const similarData = await similarCall.json()
     const similarVids = await similarData.data
     return {vid, trainerVids, similarVids}

@@ -58,8 +58,8 @@ export default function programs({user, programs}){
         setContent([])
         let str = getQueryString()
         let updateSortCall = ""
-        if(str.length > 0) updateSortCall = await fetch(`http://localhost:3000/api/_v2/content/programs?user=${router.query.trainer}${str}&sort=${sortBy.toLowerCase()}`)
-        else updateSortCall = await fetch(`http://localhost:3000/api/_v2/content/programs?user=${router.query.trainer}&sort=${sortBy.toLowerCase()}`)
+        if(str.length > 0) updateSortCall = await fetch(`/api/_v2/content/programs?user=${router.query.trainer}${str}&sort=${sortBy.toLowerCase()}`)
+        else updateSortCall = await fetch(`/api/_v2/content/programs?user=${router.query.trainer}&sort=${sortBy.toLowerCase()}`)
         const updatedSortData = await updateSortCall.json()
         const updatedSort = await updatedSortData.data
         setContent(updatedSort)
@@ -68,7 +68,7 @@ export default function programs({user, programs}){
         setContent([])
         let str = getQueryString()
         // make new API call with queryString and sort
-        const updateFiltersCall = await fetch(`http://localhost:3000/api/_v2/content/programs?user=${router.query.trainer}${str}&sort=${sortBy.toLowerCase()}`)
+        const updateFiltersCall = await fetch(`/api/_v2/content/programs?user=${router.query.trainer}${str}&sort=${sortBy.toLowerCase()}`)
         const updatedContentData = await updateFiltersCall.json()
         const updatedContent = await updatedContentData.data
         // update content state
@@ -94,11 +94,11 @@ export default function programs({user, programs}){
 
 programs.getInitialProps = async (ctx) => {
     const {trainer, type} = ctx.query
-    const userCall = await fetch(`http://localhost:3000/api/_v2/users/${trainer}`)
+    const userCall = await fetch(`https://onlyfit.vercel.app/api/_v2/users/${trainer}`)
     const userData = await userCall.json()
     const user = userData.data
 
-    const progsCall = await fetch(`http://localhost:3000/api/_v2/content/programs?user=${trainer}`)
+    const progsCall = await fetch(`https://onlyfit.vercel.app/api/_v2/content/programs?user=${trainer}`)
     const progsData = await progsCall.json()
     const programs = await progsData.data
     return {user, programs}
